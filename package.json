@@ -1,0 +1,69 @@
+{
+  "name": "goroke",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf flow-typed/npm",
+    "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
+    "format": "prettier-eslint --write --print-width 120 'src/**/*.@(js|jsx)'",
+    "flow": "flow",
+    "flow:coverage": "flow-coverage-report",
+    "commit": "git cz",
+    "precommit": "npm-run-all flow lint format",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
+    "postinstall": "npm run clean && flow-typed install --verbose",
+    "docker:build": "docker build --tag goroke . && npm run docker:images",
+    "docker:images": "docker images | grep goroke",
+    "docker:run": "docker run -dit -p 8081:80 --name goroke goroke:latest",
+    "docker:rm": "docker rm -f goroke",
+    "docker": "npm run docker:rm && npm run docker:build && npm run docker:run"
+  },
+  "dependencies": {
+    "material-ui": "^1.0.0-beta.12",
+    "next": "^3.2.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.5",
+    "cz-customizable": "^5.2.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-flow": "^1.0.1",
+    "eslint-formatter-pretty": "^1.3.0",
+    "eslint-plugin-flowtype": "^2.35.1",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.55.0",
+    "flow-coverage-report": "^0.3.0",
+    "flow-typed": "^2.1.5",
+    "npm-run-all": "^4.1.1",
+    "prettier-eslint-cli": "^4.3.2",
+    "rimraf": "^2.6.2"
+  },
+  "flow-coverage-report": {
+    "includeGlob": [
+      "src/**/*.{js,jsx}"
+    ],
+    "excludeGlob": [
+      "src/**/__test__/**/*.{js,jsx}",
+      "src/**/?(*.){test,spec}.{js,jsx}"
+    ],
+    "threshold": 10,
+    "type": [
+      "text"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    }
+  }
+}
