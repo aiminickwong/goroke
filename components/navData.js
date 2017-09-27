@@ -13,11 +13,11 @@ import ReportIcon from "material-ui-icons/Report";
 
 export const mailFolderListItems = (
   <div>
-    <ListItem button>
+    <ListItem button component="a" href="/nodes">
       <ListItemIcon>
         <InboxIcon />
       </ListItemIcon>
-      <ListItemText primary="Inbox" />
+      <ListItemText primary="Nodes" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
