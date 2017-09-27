@@ -11,8 +11,8 @@
     "build": "next build",
     "start": "next start",
     "clean": "rimraf flow-typed/npm",
-    "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
-    "format": "prettier-eslint --write --print-width 120 'src/**/*.@(js|jsx)'",
+    "lint": "eslint --format=node_modules/eslint-formatter-pretty 'pages/**/*.js'",
+    "format": "prettier-eslint --write --print-width 120 'pages/**/*.js'",
     "flow": "flow",
     "flow:coverage": "flow-coverage-report",
     "commit": "git cz",
@@ -27,9 +27,10 @@
   },
   "dependencies": {
     "material-ui": "^1.0.0-beta.12",
+    "material-ui-icons": "^1.0.0-beta.10",
     "next": "^3.2.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "cross-env": "^5.0.5",

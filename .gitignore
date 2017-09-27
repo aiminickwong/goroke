@@ -22,3 +22,6 @@ yarn-error.log*
 
 # flowtype
 /flow-typed/npm
+
+# next.js
+.next
