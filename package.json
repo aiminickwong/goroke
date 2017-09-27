@@ -7,6 +7,9 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "clean": "rimraf flow-typed/npm",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
     "format": "prettier-eslint --write --print-width 120 'src/**/*.@(js|jsx)'",
@@ -46,17 +49,10 @@
     "rimraf": "^2.6.2"
   },
   "flow-coverage-report": {
-    "includeGlob": [
-      "src/**/*.{js,jsx}"
-    ],
-    "excludeGlob": [
-      "src/**/__test__/**/*.{js,jsx}",
-      "src/**/?(*.){test,spec}.{js,jsx}"
-    ],
+    "includeGlob": ["src/**/*.{js,jsx}"],
+    "excludeGlob": ["src/**/__test__/**/*.{js,jsx}", "src/**/?(*.){test,spec}.{js,jsx}"],
     "threshold": 10,
-    "type": [
-      "text"
-    ]
+    "type": ["text"]
   },
   "config": {
     "commitizen": {
